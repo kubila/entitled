@@ -12,5 +12,7 @@ namespace Entitled.Data
             : base(options)
         {
         }
+
+        public DbSet<Employee> Employees { get; set; }
     }
 }
