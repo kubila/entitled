@@ -13,6 +13,11 @@ namespace Entitled.Data
         {
         }
 
-        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Employee> Employees { get; set; } // Dbset<Type>, type is our class name and actual property name is table name
+        
+        public DbSet<LeaveAllocation> LeaveAllocations { get; set; }
+        public DbSet<LeaveHistory> LeaveHistories { get; set; }
+        public DbSet<LeaveType> LeaveTypes { get; set; }
+        
     }
 }

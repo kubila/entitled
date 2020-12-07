@@ -23,7 +23,7 @@ namespace Entitled.Data
         public int LeaveTypeId { get; set; }
         public DateTime DateRequested { get; set; }
         public DateTime DateActioned { get; set; }
-        public bool? Approved { get; set; }
+        public bool? Approved { get; set; } // bool? means it could accept a null value
 
         [ForeignKey("ApprovedById")]
         public Employee ApprovedBy { get; set; }
