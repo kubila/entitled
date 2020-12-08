@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entitled.Contracts
 {
-    interface ILeaveAllocation : IRepositoryBase<LeaveAllocation>
+    public interface ILeaveAllocationRepository : IRepositoryBase<LeaveAllocation>
     {
 
     }

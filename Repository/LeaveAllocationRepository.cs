@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entitled.Repository
 {
-    public class LeaveAllocationRepository : ILeaveAllocation
+    public class LeaveAllocationRepository : ILeaveAllocationRepository
     {
         public bool Create(LeaveAllocation entity)
         {
