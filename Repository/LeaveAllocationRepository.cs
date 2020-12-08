@@ -9,6 +9,13 @@ namespace Entitled.Repository
 {
     public class LeaveAllocationRepository : ILeaveAllocationRepository
     {
+        private readonly ApplicationDbContext _db;
+
+        public LeaveAllocationRepository(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+
         public bool Create(LeaveAllocation entity)
         {
             throw new NotImplementedException();

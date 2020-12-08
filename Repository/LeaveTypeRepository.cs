@@ -9,6 +9,13 @@ namespace Entitled.Repository
 {
     public class LeaveTypeRepository : ILeaveTypeRepository
     {
+        private readonly ApplicationDbContext _db;
+
+        public LeaveTypeRepository(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+
         public bool Create(LeaveType entity)
         {
             throw new NotImplementedException();

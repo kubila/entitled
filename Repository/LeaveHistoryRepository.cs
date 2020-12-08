@@ -9,6 +9,13 @@ namespace Entitled.Repository
 {
     public class LeaveHistoryRepository : ILeaveHistoryRepository
     {
+        private readonly ApplicationDbContext _db;
+
+        public LeaveHistoryRepository(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+
         public bool Create(LeaveHistory entity)
         {
             throw new NotImplementedException();
