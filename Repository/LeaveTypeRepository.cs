@@ -52,7 +52,7 @@ namespace Entitled.Repository
         public bool Update(LeaveType entity)
         {
             _db.LeaveTypes.Update(entity);
-            // save
+           
             return Save();
         }
     }
