@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Entitled.Models
 {
     public class LeaveHistoryViewModel
     {
-        [Key]
+        
         public int Id { get; set; }
 
        
@@ -22,6 +23,7 @@ namespace Entitled.Models
         
         public DetailsLeaveTypeViewModel LeaveType { get; set; }
         public int LeaveTypeId { get; set; }
+        public IEnumerable<SelectListItem> LeaveTypes { get; set; }
         public DateTime DateRequested { get; set; }
         public DateTime DateActioned { get; set; }
         public bool? Approved { get; set; }
