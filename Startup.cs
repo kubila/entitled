@@ -1,5 +1,7 @@
+using AutoMapper;
 using Entitled.Contracts;
 using Entitled.Data;
+using Entitled.Mappings;
 using Entitled.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -37,6 +39,9 @@ namespace Entitled
             services.AddScoped<ILeaveHistoryRepository, LeaveHistoryRepository>();
             services.AddScoped<ILeaveAllocationRepository, LeaveAllocationRepository>();
             services.AddScoped<ILeaveTypeRepository, LeaveTypeRepository>();
+
+            // pass mapper class as argument to inject
+            services.AddAutoMapper(typeof(MapsThings));
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
