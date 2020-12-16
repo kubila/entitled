@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Entitled.Contracts;
+using Entitled.Data;
+using Entitled.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -23,7 +25,9 @@ namespace Entitled.Controllers
         // GET: LeaveTypesController
         public ActionResult Index()
         {
-            return View();
+            var leaves = _repo.FindAll().ToList();
+            var model = _mapper.Map<List<LeaveType>, List<DetailsLeaveTypeViewModel>>(leaves);
+            return View(model);
         }
 
         // GET: LeaveTypesController/Details/5

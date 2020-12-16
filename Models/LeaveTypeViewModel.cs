@@ -21,6 +21,7 @@ namespace Entitled.Models
 
         public string Name { get; set; }
 
+        [Display(Name = "Date Created")]
         public DateTime DateCreated { get; set; }
     }
 }
