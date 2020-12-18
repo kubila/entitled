@@ -45,15 +45,34 @@ namespace Entitled.Controllers
         // POST: LeaveTypesController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(LeaveTypeViewModel model)
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+
+
+                var leave = _mapper.Map<LeaveType>(model); //map values for creation
+                leave.DateCreated = DateTime.Now;
+                var isDone = _repo.Create(leave);
+                
+
+                if (!isDone)
+                {
+                    ModelState.AddModelError("", "Something is wrong, please check and try again.");
+                    return View(model);
+                }
+
                 return RedirectToAction(nameof(Index));
+
             }
             catch
             {
-                return View();
+                ModelState.AddModelError("", "Something is wrong, please check and try again.");
+                return View(model);
             }
         }
 
