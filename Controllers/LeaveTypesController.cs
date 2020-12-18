@@ -26,7 +26,7 @@ namespace Entitled.Controllers
         public ActionResult Index()
         {
             var leaves = _repo.FindAll().ToList();
-            var model = _mapper.Map<List<LeaveType>, List<DetailsLeaveTypeViewModel>>(leaves);
+            var model = _mapper.Map<List<LeaveType>, List<LeaveTypeViewModel>>(leaves);
             return View(model);
         }
 

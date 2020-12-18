@@ -6,19 +6,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Entitled.Models
 {
-    public class CreateLeaveTypeViewModel
-    {
-        [Required]                
-        public string Name { get; set; }
-
-        
-    }
-
-    public class DetailsLeaveTypeViewModel
+    
+    public class LeaveTypeViewModel
     {
 
         public int Id { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
         [Display(Name = "Date Created")]

@@ -19,7 +19,7 @@ namespace Entitled.Data
         public DbSet<LeaveAllocation> LeaveAllocations { get; set; }
         public DbSet<LeaveHistory> LeaveHistories { get; set; }
         public DbSet<LeaveType> LeaveTypes { get; set; }
-        public DbSet<Entitled.Models.DetailsLeaveTypeViewModel> DetailsLeaveTypeViewModel { get; set; }
+        public DbSet<Entitled.Models.LeaveTypeViewModel> DetailsLeaveTypeViewModel { get; set; }
         
     }
 }

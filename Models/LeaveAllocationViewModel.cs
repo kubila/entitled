@@ -24,7 +24,7 @@ namespace Entitled.Models
         public IEnumerable<SelectListItem> Employees { get; set; }
 
 
-        public DetailsLeaveTypeViewModel LeaveType { get; set; }
+        public LeaveTypeViewModel LeaveType { get; set; }
 
         public int LeaveTypeId { get; set; }
 
