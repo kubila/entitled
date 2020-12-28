@@ -41,7 +41,8 @@ namespace Entitled.Repository
 
         public bool isExists(int id)
         {
-            throw new NotImplementedException();
+            var exists = _db.LeaveAllocations.Any(q => q.Id == id);
+            return exists;
         }
 
         public bool Save()

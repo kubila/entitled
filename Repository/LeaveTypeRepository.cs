@@ -46,7 +46,8 @@ namespace Entitled.Repository
 
         public bool isExists(int id)
         {
-            throw new NotImplementedException();
+            var exists = _db.LeaveTypes.Any(q => q.Id == id); // if there is any record this is true, if not this is false
+            return exists;
         }
 
         public bool Save()
