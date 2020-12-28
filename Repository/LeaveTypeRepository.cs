@@ -44,6 +44,11 @@ namespace Entitled.Repository
             throw new NotImplementedException();
         }
 
+        public bool isExists(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Save()
         {
             return _db.SaveChanges() > 0; // return if its grater than 0

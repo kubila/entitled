@@ -40,6 +40,11 @@ namespace Entitled.Repository
             return leaveHistory;
         }
 
+        public bool isExists(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Save()
         {
             var whatWeGot = _db.SaveChanges();

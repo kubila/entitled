@@ -39,6 +39,11 @@ namespace Entitled.Repository
             return leaveAllocation;
         }
 
+        public bool isExists(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Save()
         {
             var whatWeGot = _db.SaveChanges();
