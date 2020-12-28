@@ -79,22 +79,42 @@ namespace Entitled.Controllers
         // GET: LeaveTypesController/Edit/5
         public ActionResult Edit(int id)
         {
-            
-            return View();
+            if(!_repo.isExists(id))
+            {
+                return NotFound();
+            }
+            var leave = _repo.FindById(id);
+            var mapsToView = _mapper.Map<LeaveTypeViewModel>(leave);
+
+            return View(mapsToView);
         }
 
         // POST: LeaveTypesController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(LeaveTypeViewModel leaveType)
         {
             try
             {
+                if(!ModelState.IsValid)
+                {
+                    return View(leaveType);
+                }
+
+                var type = _mapper.Map<LeaveType>(leaveType);
+                var leaveSuccess = _repo.Update(type);
+
+                if(!leaveSuccess)
+                {
+                    ModelState.AddModelError("", "Something went wrong, please try again later.");
+                    return View(leaveType);
+                }
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                ModelState.AddModelError("", "Something is wrong, please check and try again.");
+                return View(leaveType);
             }
         }
 
