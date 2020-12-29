@@ -33,7 +33,14 @@ namespace Entitled.Controllers
         // GET: LeaveTypesController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            if(!_repo.isExists(id))
+            {
+                return NotFound();
+            }
+
+            var type = _repo.FindById(id);
+            var model = _mapper.Map<LeaveTypeViewModel>(type);
+            return View(model);
         }
 
         // GET: LeaveTypesController/Create
@@ -102,6 +109,7 @@ namespace Entitled.Controllers
                 }
 
                 var type = _mapper.Map<LeaveType>(leaveType);
+                
                 var leaveSuccess = _repo.Update(type);
 
                 if(!leaveSuccess)
