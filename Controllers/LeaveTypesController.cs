@@ -129,15 +129,20 @@ namespace Entitled.Controllers
         // GET: LeaveTypesController/Delete/5
         public ActionResult Delete(int id)
         {
-            if(!_repo.isExists(id))
+            var leave = _repo.FindById(id);
+
+            if (leave == null)
             {
                 return NotFound();
             }
 
-            var leave = _repo.FindById(id);
-            var type = _mapper.Map<LeaveTypeViewModel>(leave); 
+            var isDone = _repo.Delete(leave);
 
-            return View(type);
+            if (!isDone)
+            {
+                return BadRequest();
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: LeaveTypesController/Delete/5
