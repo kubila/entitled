@@ -129,21 +129,44 @@ namespace Entitled.Controllers
         // GET: LeaveTypesController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            if(!_repo.isExists(id))
+            {
+                return NotFound();
+            }
+
+            var leave = _repo.FindById(id);
+            var type = _mapper.Map<LeaveTypeViewModel>(leave); 
+
+            return View(type);
         }
 
         // POST: LeaveTypesController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        // notice delete method's get and post signature, it's different, we can't have same method name, same method type and same method parameters at the same time
+        public ActionResult Delete(LeaveType model, int id)
         {
             try
             {
+                var leave = _repo.FindById(id);
+
+                if(leave == null)
+                {
+                    return NotFound();
+                }
+
+                var isDone = _repo.Delete(leave);
+
+                if(!isDone)
+                {                   
+                    return View(model);
+                }
                 return RedirectToAction(nameof(Index));
+                
             }
             catch
             {
-                return View();
+                return View(model);
             }
         }
     }
