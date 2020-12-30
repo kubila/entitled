@@ -2,6 +2,7 @@
 using Entitled.Contracts;
 using Entitled.Data;
 using Entitled.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,11 +12,13 @@ using System.Threading.Tasks;
 
 namespace Entitled.Controllers
 {
+    [Authorize]
     public class LeaveTypesController : Controller
     {
         private readonly ILeaveTypeRepository _repo;
         private readonly IMapper _mapper;
 
+        
         public LeaveTypesController(ILeaveTypeRepository repo, IMapper mapper)
         {
             _repo = repo;
