@@ -40,7 +40,7 @@ namespace Entitled
             services.AddScoped<ILeaveAllocationRepository, LeaveAllocationRepository>();
             services.AddScoped<ILeaveTypeRepository, LeaveTypeRepository>();
 
-            // pass mapper class as argument to inject
+            // pass mapper class as an argument to inject it
             services.AddAutoMapper(typeof(MapsThings));
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
