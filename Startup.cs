@@ -43,7 +43,7 @@ namespace Entitled
             // pass mapper class as an argument to inject it
             services.AddAutoMapper(typeof(MapsThings));
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();

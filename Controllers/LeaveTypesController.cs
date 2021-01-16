@@ -72,7 +72,7 @@ namespace Entitled.Controllers
 
                 if (!isDone)
                 {
-                    ModelState.AddModelError("", "Something went wrong, please check and try again.");
+                    ModelState.AddModelError("", "Something went wrong, please try again later.");
                     return View(model);
                 }
 
