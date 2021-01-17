@@ -90,9 +90,12 @@ namespace Entitled.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
+                    // assign newly created users to Employee role by default
+                    _userManager.AddToRoleAsync(user, "Employee").Wait();
                     _logger.LogInformation("User created a new account with password.");
                    await _signInManager.SignInAsync(user, isPersistent: false);
-                   return LocalRedirect(returnUrl);
+                    
+                    return LocalRedirect(returnUrl);
                     
                 }
 
