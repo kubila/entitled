@@ -73,6 +73,9 @@ namespace Entitled
             app.UseAuthentication();
             app.UseAuthorization();
 
+            // pass seeder class here
+            DataSeeder.Seed(userManager, roleManager);
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
