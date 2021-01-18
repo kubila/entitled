@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 namespace Entitled.Controllers
 {
     [Authorize]
+    [Authorize(Roles = "Admin")]
     public class LeaveTypesController : Controller
     {
         private readonly ILeaveTypeRepository _repo;
