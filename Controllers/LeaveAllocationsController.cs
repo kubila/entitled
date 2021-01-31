@@ -31,8 +31,18 @@ namespace Entitled.Controllers
         public ActionResult Index()
         {
             var leaves = _typerepo.FindAll().ToList();
-            var model = _mapper.Map<List<LeaveType>, List<LeaveTypeViewModel>>(leaves);
+            var modelMapped = _mapper.Map<List<LeaveType>, List<LeaveTypeViewModel>>(leaves);
+            var model = new CreateLeaveAllocationViewModel
+            {
+                LeaveTypes = modelMapped
+            };
             return View(model);
+        }
+
+
+        public ActionResult SetLeave(int id)
+        {
+
         }
 
         // GET: LeaveAllocationsController/Details/5
