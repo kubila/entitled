@@ -8,6 +8,6 @@ namespace Entitled.Contracts
 {
     public interface ILeaveAllocationRepository : IRepositoryBase<LeaveAllocation>
     {
-
+        bool CheckAllocation(int id, string employeeId);        
     }
 }

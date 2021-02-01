@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Entitled.Models.LeaveTypeViewModel>
+﻿@model Entitled.Models.CreateLeaveAllocationViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -15,14 +15,14 @@
         <tr>
             
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Leave Types
             </th>
             
-            <th></th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.LeaveTypes) {
         <tr>            
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
